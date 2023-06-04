@@ -62,6 +62,7 @@
 		E08BC94D2A297F6800CF5B92 /* MusicAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicAppUITests.swift; sourceTree = "<group>"; };
 		E08BC94F2A297F6800CF5B92 /* MusicAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E08BC95C2A29900D00CF5B92 /* BuildEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEffect.swift; sourceTree = "<group>"; };
+		E095B7872A2C9D9900F1CDC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E0D758152A2C3BCE001C073D /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		E0D758172A2C4D69001C073D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +144,7 @@
 		E08BC9312A297F6600CF5B92 /* MusicApp */ = {
 			isa = PBXGroup;
 			children = (
+				E095B7872A2C9D9900F1CDC2 /* Info.plist */,
 				E08BC9322A297F6600CF5B92 /* MusicAppApp.swift */,
 				E08BC9342A297F6600CF5B92 /* ContentView.swift */,
 				E04F6ADA2A2C5F6100993AD9 /* Data.swift */,
@@ -585,6 +587,7 @@
 				DEVELOPMENT_TEAM = APP2PA6P6L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MusicApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -615,6 +618,7 @@
 				DEVELOPMENT_TEAM = APP2PA6P6L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MusicApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

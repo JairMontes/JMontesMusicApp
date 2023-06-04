@@ -7,12 +7,16 @@
 
 import Foundation
 import SwiftUI
+import Firebase
+import AVFoundation
 
 struct PlaverView : View {
-    var album : Album
-    var song : Song
+   
+    @State var album : Album
+    @State var song : Song
+    @State var player = AVPlayer()
     
-    @State var isPlaying : Bool = false
+    @State var isPlaying : Bool = true
     
     
     var body : some View {
@@ -41,15 +45,60 @@ struct PlaverView : View {
                     }
                 }.edgesIgnoringSafeArea(.bottom).frame(height: 200, alignment: .center)
             }
+        }.onAppear(){
+            self.playSong()
+        }
+    }
+    
+    func playSong() {
+        let storage = Storage.storage().reference(forURL: self.song.file)
+        storage.downloadURL { (url, error) in
+            if error != nil  {
+                print(error)
+            }else {
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+                }
+                catch {
+                    //error
+                }
+                player = AVPlayer(url: url!)
+                player.play()
+            }
         }
     }
     func playPause() {
         self.isPlaying.toggle()
+        if isPlaying == false{
+            player.pause()
+        }else {
+            player.play()
+        }
     }
     func next() {
         
+        if let currentIndex = album.songs.firstIndex(of: song) {
+            
+            if currentIndex == album.songs.count - 1 {
+                
+            }else {
+                player.pause()
+                song = album.songs[currentIndex + 1]
+                self.playSong()
+            }
+        }
     }
     func previous() {
         
+        if let currentIndex = album.songs.firstIndex(of: song) {
+            
+            if currentIndex == 0 {
+                
+            }else {
+                player.pause()
+                song = album.songs[currentIndex - 1]
+                self.playSong()
+            }
+        }
     }
 }

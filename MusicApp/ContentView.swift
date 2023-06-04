@@ -19,6 +19,7 @@ struct Song : Hashable{
     var id = UUID()
     var name : String
     var time : String
+    var file : String
 }
 struct ContentView: View {
     
@@ -41,17 +42,20 @@ struct ContentView: View {
                     }
                 })
                 LazyVStack {
-                    ForEach((self.currentAlbum?.songs ?? self.data.albums.first?.songs) ??
-                            [Song(name: "beautifulnow", time: "2:36"),
-                             Song(name: "faded", time: "2:36"),
-                             Song(name: "getlucky", time: "2:36"),
-                             Song(name: "shotmedown", time: "2:36")],
-                id: \.self,
-                content: {
-                song in
-                        SongCell(album: currentAlbum ?? self.data.albums.first!, song: song)
-                    })
+                    if self.data.albums.first == nil {
+                        EmptyView()
+                    }else{
+                        ForEach((self.currentAlbum?.songs ?? self.data.albums.first?.songs) ??
+                                [Song(name: "", time: "", file: "")],
+                                
+                                id: \.self,
+                                content: {
+                            song in
+                            SongCell(album: currentAlbum ?? self.data.albums.first!, song: song)
+                        })
+                    }
                 }
+                    
             }.navigationTitle("Music")
         }
      }
